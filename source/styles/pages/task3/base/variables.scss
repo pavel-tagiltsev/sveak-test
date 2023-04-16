@@ -1,0 +1,25 @@
+$bg-color: #ffffff;
+$bg-mobile-color-dark: #adfcc8;
+$bg-mobile-color-light: rgb(173, 252, 200, 0.4);
+$bg-tablet-color-dark: #95d9ff;
+$bg-tablet-color-light: rgb(149, 217, 255, 0.4);
+$bg-desktop-color-light: rgba(214, 189, 255, 0.4);
+
+$menu-color: #d6bdff;
+$active-menu-item-color: rgb(255, 57, 235, 0.15);
+$menu-skeleton-color: rgb(0, 0, 0, 0.15);
+$page-skeleton-color:rgb(0, 0, 0, 0.1);
+$icon-color: #000000;
+
+$breakpoints: (
+  'mobile': 320px,
+  'large-mobile': 450px,
+  'tablet': 640px,
+  'desktop': 1024px,
+  'large-desktop': 1280px
+) !default;
+
+$z-indexes: (
+  'menu',
+  'header',
+);

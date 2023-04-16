@@ -1,0 +1,52 @@
+extends ../base
+
+block varaiables
+  - const lang = 'ru'
+  - const meta = pages.task4.meta
+  - const {page} = pages.task4
+
+block styles
+  link(href='css/task4-styles.css' rel='stylesheet')
+
+block main
+  include ../svg-sprite
+
+  #task4.container
+    h1 Задание №4
+    h2 Сверстать адаптивный блок с группой кнопок, обеспечить адаптив по условиям 1-5 БЕЗ использования js
+    ol
+      li Иконки и текст можно использовать любые;
+      li Высота кнопок не зависит от текста и меняется на брекпоинтах 750, 540, 450;
+      li Кнопки одинаковой ширины, каждая занимает треть группы;
+      li При ресайзе контейнера, если в одной из кнопок в строку не входит и текст и иконка, то на ВСЕХ трех кнопках должны скрыться иконки;
+      li Текст в кнопках может быть разной ширины, в реализации опираемся на то, что текст в кнопке не шире 200 пикселей;
+      li Нужно добавить немного js: под блоком разместить три инпута, в которых можно изменить текст для каждой из кнопкок, при изменении текста, должно выполняться условие 4.
+
+    .layout
+      .block.layout__block
+        button.button.button--left(type='button')
+          svg.button__icon.icon(style='width: 25px; height: 25px' data-icon)
+            use(xlink:href='#triangle')
+          span.button__text(data-button) Жми, будем играть
+
+        button.button.button--center(type='button')
+          svg.button__icon.icon(style='width: 25px; height: 25px' data-icon)
+            use(xlink:href='#circle')
+          span.button__text(data-button) Записать видео
+
+        button.button.button--right(type='button')
+          svg.button__icon.icon(style='width: 25px; height: 25px' data-icon)
+            use(xlink:href='#square')
+          span.button__text(data-button) Стоп игра
+
+      .controll.layout__controll
+        label.controll__label Первая
+          input.controll__input(
+            type='text'
+            value='Жми, будем играть'
+            data-input
+          )
+        label.controll__label Вторая
+          input.controll__input(type='text' value='Записать видео' data-input)
+        label.controll__label Третья
+          input.controll__input(type='text' value='Стоп игра' data-input)

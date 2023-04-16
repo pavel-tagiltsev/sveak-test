@@ -1,0 +1,46 @@
+.button {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  height: 100%;
+  padding: 8px 6px;
+
+  color: inherit;
+
+  background-color: $button-color;
+  border: none;
+  box-shadow: inset 0 -1px 0 $inner-box-shadow-color;
+  cursor: pointer;
+
+  &__icon {
+    display: block;
+    flex-shrink: 1;
+    width: 20%;
+    margin-right: 10px;
+  }
+
+  &__text {
+    display: block;
+    flex-shrink: 0;
+    max-width: 200px;
+    padding: 5px;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &--left {
+    border-right: 1px solid $border-color;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &--right {
+    border-left: 1px solid $border-color;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

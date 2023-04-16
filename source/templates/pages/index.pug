@@ -1,0 +1,33 @@
+extends ../base
+
+block varaiables
+  - const lang = 'ru'
+  - const meta = pages.index.meta
+  - const {page} = pages.index
+
+block styles
+  link(href='css/index-styles.css' rel='stylesheet')
+
+block main
+  #index.container
+    header.index__header
+      nav.index__navigation
+        ul.index__list
+          li.index__item
+            a.index__link(href='task1.html' target='_blank') Задание №1
+          li.index__item
+            a.index__link(href='task2.html' target='_blank') Задание №2
+          li.index__item
+            a.index__link(href='task3.html' target='_blank') Задание №3
+          li.index__item
+            a.index__link(href='task4.html' target='_blank') Задание №4
+
+    h1= 'Решение '
+      a.index__text-link(
+        href='https://www.figma.com/file/w144zcLXIvr0yCCDFsc1Ps/CSS-Test-Tasks---Tagiltsev-Pavel'
+        target='_blank'
+      ) тестового задания
+
+      = ' для компании sveak от '
+
+      a.index__text-link(href='./files/резюме.pdf' target='_blank') Тагильцева Павла

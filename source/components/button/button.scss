@@ -1,0 +1,30 @@
+.button {
+  display: block;
+  padding: 11px 10px 12px 10px;
+
+  color: $basic_white;
+
+  font-weight: 400;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: $basic_green;
+
+  &:hover,
+  &:focus {
+    background-color: $basic_green-2;
+  }
+
+  &:active {
+    color: rgba($basic_white, 0.3);
+  }
+}
+
+@include media('>=tablet') {
+  .button {
+    font-size: 20px;
+  }
+}

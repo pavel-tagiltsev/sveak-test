@@ -1,0 +1,31 @@
+.logo {
+  display: inline-block;
+
+  &[href]:hover,
+  &[href]:focus {
+    opacity: 0.8;
+  }
+
+  &[href]:active {
+    opacity: 0.6;
+  }
+}
+
+.logo__img {
+  width: 190px;
+  height: 38px;
+}
+
+@include media('>=tablet') {
+  .logo__img {
+    width: 174px;
+    height: 52px;
+  }
+}
+
+@include media('>=desktop') {
+  .logo__img {
+    width: 202px;
+    height: 59px;
+  }
+}

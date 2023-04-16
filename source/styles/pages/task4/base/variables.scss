@@ -1,0 +1,13 @@
+$font-color: #ffffff;
+$button-color: #009b27;
+$border-color: #d1e7dd;
+$inner-box-shadow-color: #e5e5e5;
+$icon-color: #000000;
+
+$base-font-family: 'Inter', sans-serif;
+
+$breakpoints: (
+  'mobile': 450px,
+  'tablet': 540px,
+  'desktop': 750px
+) !default;

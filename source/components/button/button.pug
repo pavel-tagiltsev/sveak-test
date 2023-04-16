@@ -1,0 +1,6 @@
+mixin button(text, type)
+  case type
+    when 'link'
+      a.button&attributes(attributes)= text
+    default
+      button.button&attributes(attributes)= text

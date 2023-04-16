@@ -1,0 +1,14 @@
+mixin title(text, type)
+  case type
+    when 'h1'
+      h1.title&attributes(attributes)= text
+    when 'h2'
+      h2.title&attributes(attributes)= text
+    when 'h3'
+      h3.title&attributes(attributes)= text
+    when 'h4'
+      h4.title&attributes(attributes)= text
+    when 'h5'
+      h5.title&attributes(attributes)= text
+    default
+      h6.title&attributes(attributes)= text

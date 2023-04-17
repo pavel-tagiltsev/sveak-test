@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
       menuItemElems: document.querySelectorAll('[data-menu="item"]')
     }).init();
 
-    new LastRowController(document.querySelectorAll('[data-card]')).init();
+    new LastRowController({
+      containerElem: document.querySelector('.cards'),
+      itemElems: document.querySelectorAll('[data-card]')
+    }).controll();
   }
 
   if (document.querySelector('#task4')) {

@@ -1,74 +1,34 @@
 import throttle from '../helpers/throttle.js';
 
 export default class LastRowController {
-  breakpoints = {
-    2: 320,
-    3: 450,
-    4: 640,
-    5: 1280
-  };
-
-  constructor(items) {
-    this.items = items;
-    this.extraElemsInLastRows = this.findExtraElemsInLastRows();
+  constructor({containerElem, itemElems}) {
+    this.container = containerElem;
+    this.items = itemElems;
   }
 
-  init = () => {
+  controll = () => {
     this.onWindowResize();
     window.addEventListener('resize', throttle(this.onWindowResize, 100));
   };
 
   onWindowResize = () => {
-    if (window.innerWidth < this.breakpoints['3']) {
-      this.clearRegardingNumberOfColumns(2);
-    }
+    const columns = getComputedStyle(this.container)
+      .getPropertyValue('grid-template-columns')
+      .split(' ')
+      .map((px) => px);
 
-    if (window.innerWidth < this.breakpoints['4']) {
-      this.clearRegardingNumberOfColumns(3);
-    }
-
-    if (window.innerWidth < this.breakpoints['5']) {
-      this.clearRegardingNumberOfColumns(4);
-    }
-
-    if (window.innerWidth >= this.breakpoints['5']) {
-      this.clearRegardingNumberOfColumns(5);
-    }
-  };
-
-  clearRegardingNumberOfColumns = (columns) => {
-    this.clearAllDisplayNone();
-    this.clearLastNotFullRow(columns);
-  };
-
-  clearLastNotFullRow = (columns) => {
-    this.extraElemsInLastRows[`${columns}`].forEach((elem) => {
-      elem.style.display = 'none';
-    });
-  };
-
-  clearAllDisplayNone = () => {
-    Object.values(this.extraElemsInLastRows).forEach((elems) => {
-      elems.forEach((elem) => {
-        elem.style.display = '';
-      });
-    });
-  };
-
-  findExtraElemsInLastRows = () => {
-    let extraElemsInLastRows = {};
-
-    Object.keys(this.breakpoints).forEach((numberOfColumns) => {
-      const numberOfExtraElems = this.items.length % numberOfColumns;
-
-      if (!numberOfExtraElems) {
-        extraElemsInLastRows[numberOfColumns] = [];
-      } else {
-        const extraElems = Array.from(this.items).slice(-numberOfExtraElems);
-        extraElemsInLastRows[numberOfColumns] = extraElems;
-      }
+    this.items.forEach((item) => {
+      item.style.display = '';
     });
 
-    return extraElemsInLastRows;
+    const numOfExtraElems = this.items.length % columns.length;
+
+    if (!numOfExtraElems) return;
+
+    const extraElems = Array.from(this.items).slice(-numOfExtraElems);
+
+    extraElems.forEach((extraElem) => {
+      extraElem.style.display = 'none';
+    });
   };
 }

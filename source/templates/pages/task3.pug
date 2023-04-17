@@ -33,9 +33,10 @@ block main
 
     main.layout__cards
       ul.cards.list
-        - const cardContents = new Array(25).fill('Lorem Ipsum is simply dummy text of the printing and typesetting industry.')
+        - const cardContents = new Array(25).fill('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.')
         each cardContent in cardContents
-          li.card(data-card)= cardContent
+          li.card(data-card)
+            .card__inner= cardContent
 
     footer.footer.layout__footer
       h2.footer__title What is Lorem Ipsum?

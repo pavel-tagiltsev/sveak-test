@@ -2,9 +2,22 @@
   padding: 10px;
   overflow: hidden;
 
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
   background-color: $page-skeleton-color;
   border-radius: 10px;
+
+  &__inner {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    overflow: hidden;
+
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+}
+
+@include media('>=tablet') {
+  .card__inner {
+    -webkit-line-clamp: 6;
+  }
 }

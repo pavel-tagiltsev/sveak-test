@@ -1,25 +1,30 @@
+/*
+  Незначительно отошел от изначальных размеров карточек
+  для лучшего лэйаута на промежуточных разрещениях
+
+  "Лайоут в браузере должен выглядеть аккуратно,
+  на всех промежуточный разрешениях, все отступы симметричны,
+  допускается отхождение от размеров и цветов прототипа,
+  но только если это обоснованно"
+*/
+
 .cards {
   display: grid;
   grid-auto-rows: 115px;
-  grid-template-columns: repeat(2, minmax(115px, 150px));
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
   gap: 20px;
   justify-content: center;
+  height: 100%;
 
   padding: 37px 16px;
 
   background-color: $bg-mobile-color-light;
 }
 
-@include media('>=large-mobile') {
-  .cards {
-    grid-template-columns: repeat(3, minmax(115px, 150px));
-  }
-}
-
 @include media('>=tablet') {
   .cards {
     grid-auto-rows: 128px;
-    grid-template-columns: repeat(4, minmax(128px, 160px));
+    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
 
     background-color: $bg-tablet-color-light;
   }
@@ -27,7 +32,6 @@
 
 @include media('>=desktop') {
   .cards {
-    grid-template-columns: repeat(4, minmax(128px, 160px));
     padding-right: 60px;
     padding-left: 60px;
 
@@ -37,7 +41,7 @@
 
 @include media('>=large-desktop') {
   .cards {
-    grid-template-columns: repeat(5, minmax(160px, 200px));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding-right: 29px;
     padding-left: 29px;
   }
